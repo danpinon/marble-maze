@@ -1,15 +1,17 @@
 let cols, rows;
-const w = 40;
+const w = 80;
 const grid =[]
 
 let current;
 let next;
 const stack = []
+const path = []
+
 
 
 //canvas setup p5 easy
 function setup(){
-    createCanvas(400, 400);
+    createCanvas(800, 800);
     cols = floor(width/w);
     rows = floor(height/w);
     // frameRate(5)
@@ -22,8 +24,8 @@ function setup(){
     }
 
     current = grid[0]; //inicial cell set to visited true
-    marble1
-      
+    // marble1
+    // prince
 }
 
 //thing related with drawing
@@ -38,11 +40,8 @@ function draw(){
     // centerBox() //center box drawing
     next = current.checkNeighbors()
     nextCell()
-    
-    marble1.physics()
-    marble1.style()
-    marble1.limits()
-   console.log(marble1.x)
+    // handleMarble()
+    handlePrince()
     
 }
 
@@ -56,11 +55,13 @@ function nextCell(){
         removeWalls(current, next)
         // step 4
         current = next;
-        
+
+        path.push(current)
         
     } else if(stack.length > 0){
 
         current = stack.pop()
+
     }
 }
 

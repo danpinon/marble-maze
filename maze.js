@@ -13,7 +13,8 @@ class Cell {
         const x2 = this.x + w
         const y1 = this.y
         const y2 = this.y + w
-        stroke(255);
+        stroke(240);
+        strokeWeight(3)
         if(this.walls[0]){
             line(x1, y1, x2, y1) //top line
         }
@@ -58,6 +59,7 @@ class Cell {
             return undefined ;
         }
     }
+
     highlight(){
         noStroke()
         fill(0, 0, 255, 100)

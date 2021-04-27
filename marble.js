@@ -4,8 +4,8 @@ class Marble {
         this.y = (y * w) + w/2
         this.posX = 
         this.posY = 
-        this.width = width
-        this.height = height
+        this.width = w/2
+        this.height = w/2
         this.v = 0
         this.weight = 1
     }
@@ -19,22 +19,25 @@ class Marble {
     physics(){
         this.v += this.weight;
         this.y += this.v
+
     }
     limits(){
-        if(this.y > height - this.height){
-            this.y = height - this.height
+        if(this.y > height - this.height/2){
+            this.y = height - this.height/2
             this.v = 0
         }
     }
 }
 
-const marble1 = new Marble(0, 0, 10,10)
+const marble1 = new Marble(0, 0, 20,20)
 
 
-function collitions(){
-    for(i = 0; i < grid.length; i++){
 
-    }
+
+function handleMarble(){
+    marble1.physics()
+    marble1.style()
+    marble1.limits()
+ 
 }
-
 
